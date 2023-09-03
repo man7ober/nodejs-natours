@@ -1,16 +1,16 @@
 ### Things To Remember:
-Express => Routes
-Express => Middlewares
+Express => Routes &nbsp;
+Express => Middlewares  &nbsp;
 
-Mongodb => Schemas
-Mongodb => Models
+Mongodb => Schemas &nbsp;
+Mongodb => Models &nbsp;
 
-MVC => Controller(Node) -> Model(Mongo) -> View(Html)
+MVC => Controller(Node) -> Model(Mongo) -> View(Html)  &nbsp;
 
-Mongodb : Database => natours, Model => tours & users
+Mongodb : Database => natours, Model => tours & users  &nbsp;
 
-Filters - {$lt, $lte, $gt, $gte, $or, $and}
-Projection - {<column_name>: 1} // Only this column will be shown in the output
+Filters - {$lt, $lte, $gt, $gte, $or, $and}  &nbsp;
+Projection - {<column_name>: 1} // Only this column will be shown in the output  &nbsp;
 
 ### All Databases - show dbs
 Create & Switch Database - use natours
