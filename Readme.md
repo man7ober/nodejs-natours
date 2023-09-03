@@ -1,18 +1,18 @@
-TODO: Things To Remember
+# Things To Remember:
 Express => Routes
 Express => Middlewares
 
-Mongodb => Schemas
-Mongodb => Models
+# Mongodb => Schemas
+# Mongodb => Models
 
-MVC => Controller(Node) -> Model(Mongo) -> View(Html)
+# MVC => Controller(Node) -> Model(Mongo) -> View(Html)
 
-TODO: Mongodb : Database => natours, Model => tours & users
+# Mongodb : Database => natours, Model => tours & users
 
-Filters - {$lt, $lte, $gt, $gte, $or, $and}
-Projection - {<column_name>: 1} // Only this column will be shown in the output
+## Filters - {$lt, $lte, $gt, $gte, $or, $and}
+## Projection - {<column_name>: 1} // Only this column will be shown in the output
 
-All Databases - show dbs
+# All Databases - show dbs
 Create & Switch Database - use natours
 Create Collection - db.createCollection('tours')
 Insert One Document - db.tours.insertOne({...})
