@@ -1,0 +1,17 @@
+header.header
+    nav.nav.nav--tours
+        a.nav__el(href='/') All Tours
+
+    div.header__logo
+        img(src='/img/logo-green-small.png', alt='Natours logo')
+
+    nav.nav.nav--user
+        if user
+            a.nav__el.nav__el--logout Logout
+            a.nav__el(href='/account')
+                img.nav__user-img(src=`/img/users/${user.photo}`, alt=`${user.name}`)
+                span #{user.name.split(' ')[0]}
+        else
+            a.nav__el.nav__el--login(href='/login') Login
+            a.nav__el.nav__el--cta(href='/signup') Signup 
+         
