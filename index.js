@@ -12,6 +12,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 // Import Routes
 const tourRouter = require('./src/routes/tourRoutes');
@@ -73,6 +74,8 @@ app.use(
 
 // 7. HTTP Request Console Logger => 3rd Party Middleware
 process.env.NODE_ENV === 'development' && app.use(morgan('dev'));
+
+app.use(compression());
 
 // 8. Mounting Routes => Middleware
 app.use('/', viewRouter); // => Moves to routes/viewRoutes
