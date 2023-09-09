@@ -33,6 +33,8 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'src/views'));
 
+app.enable('trust proxy');
+
 // 1. Helmet - set security HTTP headers => Middleware
 app.use(helmet());
 
