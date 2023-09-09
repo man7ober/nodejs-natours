@@ -13,6 +13,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 // Import Routes
 const tourRouter = require('./src/routes/tourRoutes');
@@ -33,7 +34,12 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'src/views'));
 
+// Enabling Proxy
 app.enable('trust proxy');
+
+// Enabling CORS - Access-Control-Allow-Origin *
+app.use(cors());
+app.options('*', cors()); // Preflight phase
 
 // 1. Helmet - set security HTTP headers => Middleware
 app.use(helmet());
