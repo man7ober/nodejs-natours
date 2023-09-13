@@ -68,7 +68,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(req.body, 'name', 'email');
 
   if (req.file) {
-    filteredBody.photo = req.file.filename;
+    filteredBody.photo = req.file.filename && 'default.jpg';
   }
 
   // 2. Update user document
