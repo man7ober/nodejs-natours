@@ -23,7 +23,7 @@ const bookingRouter = require('./src/routes/bookingRoutes');
 
 // Import Controllers
 const errorController = require('./src/controllers/errorController');
-const webhookCheckout = require('./src/controllers/bookingController');
+const { webhookCheckout } = require('./src/controllers/bookingController');
 
 // Import Utils
 const AppError = require('./src/utils/appError');
