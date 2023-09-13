@@ -2,8 +2,17 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const BookingModel = require('../models/bookingModel');
 const TourModel = require('../models/tourModel');
+const UserModel = require('../models/userModel');
 const APIFeatures = require('../utils/apiFeatures');
 const catchAsync = require('../utils/catchAsync');
+
+const createBookingCheckout = async (session) => {
+  const tour = session.client_reference_id;
+  const user = (await UserModel.findOne({ email: session.customer_email })).id;
+  const price = line_items[0].unit_amount;
+
+  await BookingModel.create({ tour, user, price });
+};
 
 exports.getCheckoutSession = async (req, res, next) => {
   // 1. Get the currently booked tour
@@ -13,9 +22,7 @@ exports.getCheckoutSession = async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     mode: 'payment',
-    success_url: `${req.protocol}://${req.get('host')}/?tour=${
-      req.params.tourId
-    }/&user=${req.user.id}/&price=${tour.price}`,
+    success_url: `${req.protocol}://${req.get('host')}/my-tours`,
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourID,
@@ -42,20 +49,27 @@ exports.getCheckoutSession = async (req, res, next) => {
   });
 };
 
-exports.createBookingCheckout = catchAsync(async (req, res, next) => {
-  let { tour, user, price } = req.query;
+exports.webhookCheckout = (req, res, next) => {
+  const signature = req.headers['stripe-signature'];
 
-  if (!tour || !user || !price) {
-    return next();
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      signature,
+      process.env.STRIPE_WEBHOOK_SECRET
+    );
+  } catch (err) {
+    return res.status(400).send(`Webhook error: ${err.message}`);
   }
 
-  tour = tour.replace('/', '');
-  user = user.replace('/', '');
+  if (event === 'checkout.session.completed')
+    createBookingCheckout(event.data.object);
 
-  await BookingModel.create({ tour, user, price });
-
-  res.redirect(req.originalUrl.split('?')[0]);
-});
+  res.status(200).json({
+    received: true,
+  });
+};
 
 exports.createBooking = catchAsync(async (req, res, next) => {
   next();

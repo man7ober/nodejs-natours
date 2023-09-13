@@ -23,6 +23,7 @@ const bookingRouter = require('./src/routes/bookingRoutes');
 
 // Import Controllers
 const errorController = require('./src/controllers/errorController');
+const webhookCheckout = require('./src/controllers/bookingController');
 
 // Import Utils
 const AppError = require('./src/utils/appError');
@@ -52,6 +53,12 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  webhookCheckout
+);
 
 // 3. Serve Static Files => Middleware
 app.use(express.static(path.join(__dirname, 'public')));
