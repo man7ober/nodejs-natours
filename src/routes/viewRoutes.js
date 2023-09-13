@@ -14,11 +14,9 @@ const {
   getReviews,
 } = require('../controllers/viewsController');
 
-const { createBookingCheckout } = require('../controllers/bookingController');
-
 const viewRouter = express.Router();
 
-viewRouter.get('/', createBookingCheckout, isLoggedIn, getOverview);
+viewRouter.get('/', isLoggedIn, getOverview);
 viewRouter.get('/tour/:slug', isLoggedIn, getTour);
 viewRouter.get('/login', isLoggedIn, getLogin);
 viewRouter.get('/signup', isLoggedIn, getSignup);
