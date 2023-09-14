@@ -26,10 +26,10 @@ exports.getCheckoutSession = async (req, res, next) => {
             name: `${tour.name} Tour`,
             description: tour.summary,
             images: [
-              `${req.protocol}://${req.get('host')}/tours/${tour.imageCover}`,
+              `https://man7ober-natours.onrender.com/img/tours/${tour.imageCover}`,
             ],
           },
-          unit_amount: tour.price * 10000,
+          unit_amount: tour.price * 8300,
           currency: 'inr',
         },
         quantity: 1,
