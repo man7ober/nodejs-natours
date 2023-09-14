@@ -16,10 +16,18 @@ block content
                            
                     .card__footer
                         p
+                            span.card__footer-value Name - #{bill.user.name}
+                            br
+                            br
+                            span.card__footer-value Email - #{bill.user.email}
+                            br
+                            br
                             span.card__footer-value Amount - ₹#{new Intl.NumberFormat().format(bill.price * 100)}
-                        p.card__ratings
+                            br
+                            br
                             span.card__footer-value Order ID - #{bill.id.slice(0, 10)}
-                        a.btn.btn--green.btn--small #{bill.paid && 'Paid'} 
+
+                        
 
                             
   

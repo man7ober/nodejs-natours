@@ -1,0 +1,27 @@
+extends base
+
+block content 
+  main.main 
+        .card-container
+            each user in users 
+                .card 
+                    .card__header
+                        .card__picture
+                            .card__picture-overlay &nbsp;
+                            img.card__picture-img(src=`/img/users/${user.photo}`, alt=`${user.name}`)
+                    
+                           
+                    .card__footer
+                        p
+                          span.card__footer-value User ID - #{user._id}
+                            br
+                            br
+                          span.card__footer-value Name - #{user.name}
+                            br
+                            br
+                          span.card__footer-value Email - #{user.email}
+                            br
+                            br
+
+                            
+  

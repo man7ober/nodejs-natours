@@ -14,6 +14,15 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.adminTours = catchAsync(async (req, res) => {
+  const tours = await TourModel.find();
+
+  res.status(200).render('adminTours', {
+    title: 'All Tours',
+    tours,
+  });
+});
+
 exports.getTour = catchAsync(async (req, res, next) => {
   const tour = await TourModel.findOne({ slug: req.params.slug }).populate({
     path: 'reviews',
@@ -62,21 +71,48 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.adminUsers = catchAsync(async (req, res) => {
+  const users = await UserModel.find();
+
+  res.status(200).render('adminUsers', {
+    title: 'All Users',
+    users,
+  });
+});
+
+exports.adminBillings = catchAsync(async (req, res) => {
+  const billings = await BookingModel.find();
+
+  res.status(200).render('adminBillings', {
+    title: 'All Billing',
+    billings,
+  });
+});
+
 exports.getBilling = catchAsync(async (req, res) => {
-  const billing = await BookingModel.find({ user: req.user.id });
+  const billings = await BookingModel.find({ user: req.user.id });
 
   res.status(200).render('billing', {
-    title: 'User Billing',
-    billing,
+    title: 'Billing',
+    billings,
+  });
+});
+
+exports.adminReviews = catchAsync(async (req, res) => {
+  const adminReviews = await ReviewModel.find();
+
+  res.status(200).render('adminReviews', {
+    title: 'All Reviews',
+    adminReviews,
   });
 });
 
 exports.getReviews = catchAsync(async (req, res) => {
-  const reviews = await ReviewModel.find({ user: req.user.id });
+  const userReviews = await ReviewModel.find({ user: req.user.id });
 
   res.status(200).render('review', {
     title: 'Reviews',
-    reviews,
+    userReviews,
   });
 });
 
