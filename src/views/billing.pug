@@ -1,0 +1,25 @@
+extends base
+
+block content 
+  main.main 
+        .card-container
+            each bill in billings
+                .card 
+                    .card__header
+                        .card__picture
+                            .card__picture-overlay &nbsp;
+                            img.card__picture-img(src=`/img/tours/${bill.tour.imageCover}`, alt=`${bill.tour.name}`)
+                        h3.heading-tertirary
+                            p.card__text #{bill.createdAt.toLocaleDateString('en-US', {day:"numeric", year:"numeric", month:"short"})} 
+                            span #{bill.tour.name} 
+                    
+                           
+                    .card__footer
+                        p
+                            span.card__footer-value Amount - ₹#{new Intl.NumberFormat().format(bill.price * 83)}
+                        p.card__ratings
+                            span.card__footer-value Order ID - #{bill.id.slice(0, 10)}
+                        a.btn.btn--green.btn--small #{bill.paid && 'Paid'} 
+
+                            
+  

@@ -1,0 +1,27 @@
+extends base
+
+block content 
+  main.main 
+      .card-container
+        for review in adminReviews 
+          .card 
+            .card__header
+              .card__picture
+                .card__picture-overlay &nbsp;
+                img.card__picture-img(src=`/img/tours/${review.tour.imageCover}`, alt=`${review.tour.name}`)
+              h3.heading-tertirary
+                p.card__text #{review.createdAt.toLocaleDateString('en-US', {day:"numeric", year:"numeric", month:"short"})} 
+                span #{review.tour.name}
+
+            .card__footer
+              p
+                span.card__footer-value Review Id - #{review._id}
+                br
+                br
+                span.card__footer-value Review By - #{review.user.name}
+                br
+                br
+                span.card__footer-value Rating - #{review.rating}
+                br
+                br
+                span.card__footer-value Review - #{review.review}
