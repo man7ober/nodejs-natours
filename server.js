@@ -22,9 +22,9 @@ const app = require('./index');
 const db = process.env.DB.replace('<PASSWORD>', process.env.DB_PASS);
 
 // Connect MongoDB Server
-mongoose.connect(db).then(() => console.log(`MongoDB connected💚`));
+mongoose.connect(db).then(() => console.log(`MongoDB connected`));
 
 // Start Node Server
 const port = process.env.PORT || 8000;
 
-app.listen(port, () => console.log(`Listening on ${port}💙`));
+app.listen(port, () => console.log(`Listening on ${port}`));

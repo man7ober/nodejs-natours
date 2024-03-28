@@ -5,3 +5,7 @@
 <code>npm install</code> - install libraries
 
 <code>npm run start</code> - run server
+
+**Hosted on Render :**
+
+<link>https://man7ober-natours.onrender.com</link>
