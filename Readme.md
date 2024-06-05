@@ -1,3 +1,5 @@
+## Project - Natours
+
 **Instructions :**
 
 <code>npm install -g npm@latest</code> - upgrade the npm package
