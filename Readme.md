@@ -1,15 +1,23 @@
-## Project - Natours
+## Nodejs - Natours
 
 **Instructions :**
 
-<code>npm install -g npm@latest</code>
-- upgrade the npm package
+Upgrade the npm package
 
-<code>npm install</code>
-- install libraries
+```bash
+npm install -g npm@latest
+```
 
-<code>npm run start</code>
-- run server
+Install libraries
+
+```bash
+npm install
+```
+
+Run server
+```bash
+npm run start
+```
 
 **Hosted on Render :**
 
