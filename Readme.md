@@ -1,6 +1,4 @@
-## Nodejs - Natours
-
-**Instructions :**
+## [Nodejs - Natours](https://man7ober-natours.onrender.com<) 
 
 Upgrade the npm package
 
@@ -18,7 +16,3 @@ Run server
 ```bash
 npm run start
 ```
-
-**Hosted on Render :**
-
-<link>https://man7ober-natours.onrender.com</link>
