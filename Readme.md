@@ -1,22 +1,22 @@
 ## Nodejs - Natours
 
-Website - <link>https://man7ober-natours.onrender.com</link>
+Database - MongoDB Atlas
 
-##
+Hosted on - https://man7ober-natours.onrender.com
 
-Upgrade the npm package
+**01 - Upgrade the npm package**
 
 ```bash
 npm install -g npm@latest
 ```
 
-Install libraries
+**02 - Install libraries**
 
 ```bash
 npm install
 ```
 
-Run server
+**03 - Run server**
 
 ```bash
 npm run start
