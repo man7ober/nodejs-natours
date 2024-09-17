@@ -2,7 +2,7 @@
 
 Database - MongoDB Atlas
 
-Hosted on - https://nodejs-natours.vercel.app
+Hosted on - https://man7ober-natours.onrender.com
 
 **01 - Upgrade the npm package**
 
