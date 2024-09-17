@@ -45,13 +45,13 @@ app.options('*', cors()); // Preflight phase
 app.use(helmet());
 
 // 2. Rate Limiter - stopping multiple request coming from same IP => Middleware
-const limiter = rateLimit({
-  max: 10,
-  windowsMs: 60 * 60 * 1000,
-  message: 'Too many requests from this IP, please try again in an hour!',
-});
+// const limiter = rateLimit({
+//   max: 100,
+//   windowsMs: 60 * 60 * 1000,
+//   message: 'Too many requests from this IP, please try again in an hour!',
+// });
 
-app.use('/api', limiter);
+// app.use('/api', limiter);
 
 // 3. Serve Static Files => Middleware
 app.use(express.static(path.join(__dirname, 'public')));
